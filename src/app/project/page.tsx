@@ -53,6 +53,7 @@
 
 import React, { useState, useRef } from "react";
 import { Button } from "@/component/ui/button";
+import Image from "next/image";
 
 const Project = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -89,6 +90,36 @@ const Project = () => {
             {isPlaying ? "⏸️" : "▶️"}
           </Button>
         </div>
+
+        <div className="px-4 py-10">
+            <div className="grid grid-cols-2 ">
+                <Image
+                src="/Images/mehta3.png"
+                alt=""
+                height={300}
+                width={400}/>
+
+<Image
+                src="/Images/mehta2.png"
+                alt=""
+                height={300}
+                width={400}/>
+
+<Image
+                src="/Images/mehta3.png"
+                alt=""
+                height={300}
+                width={400}/>
+
+<Image
+                src="/Images/mehta4.png"
+                alt=""
+                height={300}
+                width={400}/>
+            </div>
+            <div></div>
+        </div>
+
       </section>
     </div>
   );
