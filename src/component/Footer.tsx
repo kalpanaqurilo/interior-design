@@ -68,6 +68,7 @@
 // }
 
 import React from "react";
+import Image from "next/image";
 
 const footerLinks = {
   quickLinks: ["About Us", "Contact Us", "Portfolio"],
@@ -82,48 +83,91 @@ const socialIcons = [
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-[#B8936B] py-12">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-4 gap-12 mb-8">
+    <footer className="w-full bg-[#996830] py-4 ">
+      <div className="max-w-7xl mx-auto px-2 ">
+        <div className="grid grid-cols-4 gap-14 mb-8 px-2 py-2">
           {/* Logo and Social Icons */}
-          <div className="flex flex-col gap-8">
-            <div className="border-2 border-white p-4 w-fit">
-              <div className="text-white font-serif text-3xl">Rehosul</div>
-              <div className="text-white text-xs tracking-widest">DESIGN & BUILD</div>
+          <div className="flex flex-col gap-8 ">
+            <div className=" mt-2 w-fit">
+              <div className="text-white font-serif text-3xl">
+                <Image
+                src="/Images/logo.png"
+                alt="logo"
+                height={150}
+                width={150}
+                className="text-white font-serif text-3xl"/>
+              </div>
+              
             </div>
             <div className="flex gap-4">
-              {socialIcons.map((social, index) => (
-                <div
-                  key={index}
-                  className="w-10 h-10 rounded border border-white flex items-center justify-center cursor-pointer hover:bg-white/10 transition"
-                >
-                  <span className="text-white text-sm">{social.icon === 'twitter' ? '𝕏' : social.icon === 'linkedin' ? 'in' : '📷'}</span>
-                </div>
-              ))}
+             
+                
+          
+                  {/* <span className="text-[#996830] text-bold">{social.icon === 'twitter' ? '𝕏' : social.icon === 'linkedin' ? 'in' : '📷'}</span> */}
+                  <Image
+                  src="/Images/icon1.png"
+                  alt="twitter"
+                  height={60}
+                  width={40}
+                  className="px-2 py-2 rounded border border-white flex bg-white items-center justify-center cursor-pointer "/>
+
+                   <Image
+                  src="/Images/icon2.png"
+                  alt="twitter"
+                  height={60}
+                  width={40}
+                  className="px-2 py-2 rounded border border-white flex bg-white items-center justify-center cursor-pointer "/>
+
+                   <Image
+                  src="/Images/icon3.png"
+                  alt="twitter"
+                  height={60}
+                  width={40}
+                  className=" px-2 py-2 rounded border border-white flex bg-white items-center justify-center cursor-pointer "/>
+                
+              
             </div>
           </div>
 
           {/* Get In Touch */}
-          <div>
+          <div className="py-4">
             <h3 className="font-semibold text-white text-base mb-4">Get In Touch</h3>
             <div className="flex flex-col gap-2 text-white text-sm">
               <div className="flex items-start gap-2">
-                <span>✉</span>
+                <Image
+                  src="/Images/vector1.png"
+                  alt="email"
+                  height={16}
+                  width={16}
+                  className="mt-1"
+                />
                 <span>abcd@gmail.com</span>
               </div>
               <div className="flex items-start gap-2">
-                <span>📞</span>
+                <Image
+                  src="/Images/vector2.png"
+                  alt="phone"
+                  height={16}
+                  width={16}
+                  className="mt-1"
+                />
                 <span>(+91-2345678967)</span>
               </div>
               <div className="flex items-start gap-2">
-                <span>📍</span>
+                <Image
+                  src="/Images/vector3.png"
+                  alt="location"
+                  height={16}
+                  width={16}
+                  className="mt-1"
+                />
                 <span>8779 Windsor St. Fuquay Varina, NC 27526</span>
               </div>
             </div>
           </div>
 
           {/* Quick Link */}
-          <div>
+          <div className="py-4 px-10">
             <h3 className="font-semibold text-white text-base mb-4">Quick Link</h3>
             <div className="flex flex-col gap-2">
               {footerLinks.quickLinks.map((link, index) => (
@@ -139,7 +183,7 @@ export const Footer = () => {
           </div>
 
           {/* Studio */}
-          <div>
+          <div className="py-4">
             <h3 className="font-semibold text-white text-base mb-4">Studio</h3>
             <div className="flex flex-col gap-2 mb-6">
               {footerLinks.studio.map((link, index) => (
@@ -160,7 +204,7 @@ export const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-white/20 pt-4">
+        <div className="  ">
           <p className="text-white text-xs">
             © All Copyrights Reserved. Lorem Ipsum Dolor Sit Amet, Conse
           </p>
