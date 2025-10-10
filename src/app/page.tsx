@@ -4,7 +4,11 @@ import React from "react";
 
 import { Button } from "@/component/ui/button";
 import { useRef, useState } from "react";
+import Testimonial from "@/component/Testimonial";
 import Image from "next/image";
+import StatsBanner from "@/component/Stats";
+import Link from "next/link";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 
 
@@ -81,24 +85,7 @@ export default function Home() {
         {/* Banner */}
 
         <section className="w-full bg-[#0a0f1c] py-8">
-          <div className="max-w-[1400px] mx-auto grid grid-cols-4 text-center text-white gap-6">
-            <div>
-              <h3 className="text-3xl font-bold text-yellow-500">500+</h3>
-              <p className="text-sm mt-2">Projects Completed</p>
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold text-yellow-500">15+</h3>
-              <p className="text-sm mt-2">Years Experience</p>
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold text-yellow-500">50+</h3>
-              <p className="text-sm mt-2">Design Awards</p>
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold text-yellow-500">98%</h3>
-              <p className="text-sm mt-2">Client Satisfaction</p>
-            </div>
-          </div>
+          <StatsBanner />
         </section>
 
         {/* section1 */}
@@ -119,25 +106,6 @@ export default function Home() {
           </div>
         </section>
 
-
-
-
-        {/* <section>
-          <div>
-            <div className="absolute bg-white opacity-20 ">
-              <Image
-                src="/Images/section3.png"
-                alt="section3"
-                width={1550}
-                height={1300}
-              />
-            </div>
-            <div className="relative px-26 py-26  ">
-              <h2 className="text-[#444444] text-bold font-Playfair Display text-[48px]">Our Signature Approach </h2>
-              <p className="text-[#444444] px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br/>Atque recusandae numquam incidunt eius nihil nulla, ea perspiciatis <br/>quas qui vero culpa quibusdam dolorem laudantium,  a nam!</p>
-            </div>
-          </div>
-        </section> */}
 
         {/* section2 */}
 
@@ -195,7 +163,7 @@ export default function Home() {
 
 
 
-        {/* section3 */}
+        {/* Recent Works section3 */}
 
         <section className="w-full py-24 bg-[#fefcf8]">
           <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-22 px-6">
@@ -234,9 +202,11 @@ export default function Home() {
                 Erat id laoreet posuere etiam morbi.
               </p>
 
-              <button className="mt-8 bg-[#9e7b47] hover:bg-[#83673b] text-white px-6 py-3 rounded-md text-sm uppercase tracking-wide transition">
-                Contact Us →
-              </button>
+              <Link href="/contact-us">
+                <button className="mt-8 bg-[#9e7b47] hover:bg-[#83673b] text-white px-6 py-3 rounded-md text-sm uppercase tracking-wide transition">
+                  Contact Us ↗
+                </button>
+              </Link>
             </div>
 
             {/* Right Project List */}
@@ -374,7 +344,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* section 6 */}
+        {/* Our Latest Project section 6 */}
 
         <section className="w-full bg-[#fffefa] py-44 px-10">
           <div className="max-w-[1300px] mx-auto text-center">
@@ -453,65 +423,77 @@ export default function Home() {
 
         {/* section 7 */}
 
-        <section className="w-full h-[1500] bg-[#fffefa] py-20 relative">
+        <section className="w-full h-[1210] bg-[#fffefa] py-20 relative">
           <div className="relative w-full flex justify-center items-center mt-10">
-  {/* Background Image */}
-  <Image
-    src="/Images/about.png"
-    alt="About Background"
-    width={1510}
-    height={700}
-    className="w-[1510px] h-[700px] object-cover shadow-lg"
-  />
+            {/* Background Image */}
+            <Image
+              src="/Images/about.png"
+              alt="About Background"
+              width={1510}
+              height={700}
+              className="w-[1510px] h-[700px] object-cover shadow-lg"
+            />
 
-  {/* Content Card */}
-  <div className="absolute bottom-[-180px] bg-white w-[1300px] flex justify-between px-16 py-14 shadow-lg">
-    {/* Left Content */}
-    <div className="w-[35%] relative">
-      {/* Heading line and About Us */}
-      <div className="flex items-center gap-4 mb-4">
-        <div className="w-10 h-[2px] bg-[#b88b4a]"></div>
-        <p className="text-[#b88b4a] font-[Urbanist] text-xl">About Us</p>
-      </div>
-
-      {/* Main heading */}
-      <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-[42px] font-bold leading-snug mb-10">
-        WHO WE <br /> ARE ?
-      </h2>
-
-      {/* Read More Circular Style */}
-      <div className="absolute bottom-[-110px] left-[-30px]">
-  <svg width="140" height="140" viewBox="0 0 140 140" className="animate-spin-slow">
-    <defs>
-      <path
-        id="circlePath"
-        d="M70,70 m-60,0 a60,60 0 1,1 120,0 a60,60 0 1,1 -120,0"
-      />
-    </defs>
-    <text fill="#999" fontSize="10" fontFamily="Arial" letterSpacing="2">
-      <textPath href="#circlePath" startOffset="0%">
-        READ MORE · READ MORE · READ MORE · READ MORE ·
-      </textPath>
-    </text>
-  </svg>
-</div>
-
+            {/* Content Card */}
+            <div className="absolute bottom-[-180px] bg-white w-[1300px] flex justify-between px-16 py-14 shadow-lg">
+  {/* Left Content */}
+  <div className="w-[35%] relative">
+    {/* Heading line and About Us */}
+    <div className="flex items-center gap-4 mb-4">
+      <div className="w-10 h-[2px] bg-[#b88b4a]"></div>
+      <p className="text-[#b88b4a] font-[Urbanist] text-xl">About Us</p>
     </div>
 
-    {/* Right Content */}
-    <div className="w-[60%]">
-      <p className="text-[#555] text-[17px] leading-relaxed mb-4">
-        At <span className="font-semibold text-[#b88b4a]">Rkaul Design & Build</span>, we believe that great design is more than just aesthetics—it's about creating spaces that reflect your personality, lifestyle, and dreams.
-      </p>
-      <p className="text-[#555] text-[17px] leading-relaxed ">
-        With a team of passionate interior designers, architects, and stylists, we specialize in transforming residential and commercial spaces into timeless, functional, and inspiring environments. Whether it’s a cozy home makeover, a luxury apartment, or a sleek office revamp—we bring creativity, precision, and a personalized touch to every project.
-      </p>
+    {/* Main heading */}
+    <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-[42px] font-bold leading-snug mb-10">
+      WHO WE <br /> ARE ?
+    </h2>
+
+    {/* Read More Circular Style */}
+    <div className=" bottom-[-120px] left-[-40px] w-[140px] h-[140px] flex items-center justify-center relative">
+      {/* Spinning Circle Text */}
+      <svg width="140" height="140" viewBox="0 0 140 140" className="animate-spin-slow absolute top-0 left-0">
+        <defs>
+          <path
+            id="circlePath"
+            d="M70,70 m-60,0 a60,60 0 1,1 120,0 a60,60 0 1,1 -120,0"
+          />
+        </defs>
+        <text fill="#999" fontSize="10" fontFamily="Arial" letterSpacing="2">
+          <textPath href="#circlePath" startOffset="0%">
+            READ MORE · READ MORE · READ MORE · READ MORE ·
+          </textPath>
+        </text>
+      </svg>
+      </div>
+<div>
+      {/* Arrow inside the circle, at the bottom */}
+      <Link href="/about-us">
+        <div className="absolute mt-6 text-[#b88b4a] text-6xl cursor-pointer ">
+          <IoIosArrowRoundForward />
+        </div>
+      </Link>
     </div>
   </div>
-</div>
 
+  {/* Right Content */}
+  <div className="w-[60%]">
+    <p className="text-[#555] text-[17px] leading-relaxed mb-4">
+      At <span className="font-semibold text-[#b88b4a]">Rkaul Design & Build</span>, we believe that great design is more than just aesthetics—it's about creating spaces that reflect your personality, lifestyle, and dreams.
+    </p>
+    <p className="text-[#555] text-[17px] leading-relaxed ">
+      With a team of passionate interior designers, architects, and stylists, we specialize in transforming residential and commercial spaces into timeless, functional, and inspiring environments. Whether it’s a cozy home makeover, a luxury apartment, or a sleek office revamp—we bring creativity, precision, and a personalized touch to every project.
+    </p>
+  </div>
+</div>
+          </div>
         </section>
 
+        <section>
+          {/* Testimonial Component */}
+          <Testimonial />
+
+        </section>
       </main>
     </div>
   );

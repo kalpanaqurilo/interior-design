@@ -7,7 +7,7 @@ const navigationItems = [
     { label: "Home", href: "/" },
     { label: "Service", href: "/services"},
     { label: "Project", href: "/project"},
-    { label: "Contact Us", href: "/contact-us"},
+    { label: "About Us", href: "/about-us"},
   ];
 
 export const Navbar=()=>{
@@ -35,11 +35,13 @@ export const Navbar=()=>{
           ))}
         </nav>
 
+<Link href="/contact-us">
         <Button className=" bg-[#996830] hover:bg-[#7d5426] rounded-[10px] px-[15] py-4">
           <span className="font-['Urbanist'] font-medium text-white text-base text-center tracking-[0.50px] leading-5 whitespace-nowrap">
-            Get Free Quotation
+            Contact Us
           </span>
         </Button>
+        </Link>
       </header>
 
     )

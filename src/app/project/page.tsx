@@ -7,17 +7,25 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 
 
-const cards =[
-    {
-        img:"/Images/slider1.png",
-        
-    },
-    {
-        img:"/Images/slider2.png",
-    },
-    {img:"/Images/slider3.png"},
-    {img:"/Images/slider4.png"},
-    {img:"/Images/slider3.png"},
+const cards = [
+  {
+    img: "/Images/slider1.png"
+
+  },
+  {
+    img: "/Images/slider2.png"
+  },
+  { img: "/Images/slider3.png"
+
+   },
+
+  { img: "/Images/slider4.png" 
+
+  },
+  { img: "/Images/slider3.png" 
+
+  },
+
 ]
 // ✅ Button Component
 const Button = ({
@@ -54,9 +62,8 @@ const ProjectCard = ({
 }) => {
   return (
     <div
-      className={`flex flex-col md:flex-row ${
-        reverse ? "md:flex-row-reverse" : ""
-      } gap-12 items-start mb-18`}
+      className={`flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""
+        } gap-12 items-start mb-18`}
     >
       {/* ✅ Custom Image Layout */}
       <div className="w-full md:w-1/2 flex gap-4">
@@ -293,97 +300,63 @@ const Project = () => {
       {/* ✨ Call-To-Action Section */}
       <section className=" py-5 ">
         <div className="max-w-[1400px] mx-auto px-[88px] text-center">
-          
+
           <button className="hover:bg-[#996830]  text-[#996830] hover:text-white px-6 py-2 rounded-lg font-['Lato',Helvetica] text-[16px] font-thin border border-[#996830] transition">
-View All Project
+            View All Project
           </button>
         </div>
       </section>
-{/* 
+      {/* 
 card crousle */}
 
-<section className="w-full py-20 overflow-hidden bg-[#fffefa]">
-          
-
-          <div className="relative">
-            <div className="flex gap-6 animate-scroll">
-              <div className="flex gap-6 min-w-max">
-                <div className="w-[400px] h-[300px]  overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0">
-                  <Image
-                    src="/Images/slider1.png"
-                    alt="Interior 1"
-                    height={300}
-                    width={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="w-[400px] h-[300px]  overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0">
-                <Image
-                    src="/Images/slider2.png"
-                    alt="Interior 1"
-                    height={300}
-                    width={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="w-[400px] h-[300px]  overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0">
-                <Image
-                    src="/Images/slider3.png"
-                    alt="Interior 1"
-                    height={300}
-                    width={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="w-[400px] h-[300px]  overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0">
-                <Image
-                    src="/Images/slider4.png"
-                    alt="Interior 1"
-                    height={300}
-                    width={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="w-[400px] h-[300px]  overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0">
-                <Image
-                    src="/Images/slider5.png"
-                    alt="Interior 1"
-                    height={300}
-                    width={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="flex gap-6 min-w-max" aria-hidden="true">
-                <div className="w-[400px] h-[300px]  overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0">
-                <Image
-                    src="/Images/slider6.png"
-                    alt="Interior 1"
-                    height={300}
-                    width={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0">
-                <Image
-                    src="/Images/slider7.png"
-                    alt="Interior 1"
-                    height={300}
-                    width={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-              </div>
-            </div>
+      <section className="w-full py-20 overflow-hidden bg-[#fffefa]">
+  <div className="relative">
+    <div className="flex gap-6 animate-scroll px-6">
+      {/* First Set */}
+      <div className="flex gap-6 min-w-max">
+        {[1, 2, 3, 4, 5].map((num) => (
+          <div
+            key={num}
+            className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
+          >
+            <Image
+              src={`/Images/slider${num}.png`}
+              alt={`Interior ${num}`}
+              height={300}
+              width={400}
+              className="w-full h-full object-cover"
+            />
           </div>
-        </section>
+        ))}
+      </div>
+
+      {/* Duplicate Set (for seamless looping) */}
+      <div className="flex gap-6 min-w-max" aria-hidden="true">
+        {[6, 7, 1, 2, 3].map((num) => (
+          <div
+            key={`dup-${num}`}
+            className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
+          >
+            <Image
+              src={`/Images/slider${num}.png`}
+              alt={`Interior ${num}`}
+              height={300}
+              width={400}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 
     </div>
   );
 };
 
 export default Project;
- 
+
 
 
