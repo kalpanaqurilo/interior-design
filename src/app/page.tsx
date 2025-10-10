@@ -9,6 +9,7 @@ import Image from "next/image";
 import StatsBanner from "@/component/Stats";
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import RecentProjects from "@/component/RecentProject";
 
 
 
@@ -167,7 +168,7 @@ export default function Home() {
 
         <section className="w-full py-24 bg-[#fefcf8]">
           <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-22 px-6">
-            {/* Left Text Content */}
+           
             <div>
               <p className="uppercase text-[#b88b4a] tracking-widest mb-4 font-semibold">
                 Recent Works
@@ -176,7 +177,7 @@ export default function Home() {
                 Some of our crafts<br />made with love
               </h2>
 
-              {/* Large Image Card */}
+             
               <div className="relative w-full h-[480px] overflow-hidden  shadow-lg group">
                 <Image
                   src="/Images/image1.png"
@@ -209,9 +210,9 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Right Project List */}
+            
             <div className="flex flex-col gap-10">
-              {/* Project 1 */}
+             
               <div className="flex flex-col">
                 <div className="relative w-full h-[390px] overflow-hidden  shadow-lg group">
                   <Image
@@ -237,7 +238,7 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Project 2 */}
+              
               <div className="flex flex-col">
                 <div className="relative w-full h-[390px] overflow-hidden  shadow-lg group">
                   <Image
@@ -265,14 +266,14 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+        {/* <RecentProjects /> */}
 
         {/* section4 */}
 
         <section className="flex justify-evenly px-4 py-16">
           <div className="py-16">
             <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-[48px] font-semibold leading-snug mb-8">We Don’t Fill Rooms.<br className="text-[#996830] ml-4" /> We Shape Feelings.</h2>
-            <p className="text-[#555] text-[16px] mt-2 leading-relaxed">Your home isn't just where you live — it's where your life unfolds.<br />
+            <p className="text-[#555] text-[16px] mt-2 leading-relaxed">Your home isnt just where you live — its where your life unfolds.<br />
               We design interiors that remember how you like your coffee,<br />
               where the light hits just right in the morning,<br />
               and how silence should feel when you finally get home.</p>
@@ -339,7 +340,7 @@ export default function Home() {
               <li>✨ a home that hugs you back,</li>
               <li>🪴 a kitchen that grows with you,</li>
               <li>💭 or a workspace that breathes —</li>
-              <li>we're here to translate your life into form and feeling.</li>
+              <li>we are here to translate your life into form and feeling.</li>
             </ul>
           </div>
         </section>
@@ -479,7 +480,7 @@ export default function Home() {
   {/* Right Content */}
   <div className="w-[60%]">
     <p className="text-[#555] text-[17px] leading-relaxed mb-4">
-      At <span className="font-semibold text-[#b88b4a]">Rkaul Design & Build</span>, we believe that great design is more than just aesthetics—it's about creating spaces that reflect your personality, lifestyle, and dreams.
+      At <span className="font-semibold text-[#b88b4a]">Rkaul Design & Build</span>, we believe that great design is more than just aesthetics—it is about creating spaces that reflect your personality, lifestyle, and dreams.
     </p>
     <p className="text-[#555] text-[17px] leading-relaxed ">
       With a team of passionate interior designers, architects, and stylists, we specialize in transforming residential and commercial spaces into timeless, functional, and inspiring environments. Whether it’s a cozy home makeover, a luxury apartment, or a sleek office revamp—we bring creativity, precision, and a personalized touch to every project.

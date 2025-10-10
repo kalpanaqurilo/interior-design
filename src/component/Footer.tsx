@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { href } from "react-router-dom";
 
 const footerLinks = {
   quickLinks:[ 
@@ -17,11 +16,6 @@ const footerLinks = {
   ],
 };
 
-const socialIcons = [
-  { icon: "twitter", alt: "Twitter" },
-  { icon: "linkedin", alt: "LinkedIn" },
-  { icon: "instagram", alt: "Instagram" },
-];
 
 export const Footer = () => {
   return (
