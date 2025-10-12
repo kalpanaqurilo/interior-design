@@ -7,26 +7,6 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 
 
-const cards = [
-  {
-    img: "/Images/slider1.png"
-
-  },
-  {
-    img: "/Images/slider2.png"
-  },
-  { img: "/Images/slider3.png"
-
-   },
-
-  { img: "/Images/slider4.png" 
-
-  },
-  { img: "/Images/slider3.png" 
-
-  },
-
-]
 // ✅ Button Component
 const Button = ({
   className,
