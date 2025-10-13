@@ -76,10 +76,7 @@ const ContactUs = () => {
 
     return (
         <div className="py-20 bg-[#fffefa] w-full min-h-screen relative pt-[140px]">
-            {/* === DISCOVER SECTION === */}
-            {/* Keep your existing discover section and images unchanged */}
-
-            {/* === FORM SECTION === */}
+          
             <section className="max-w-[1000px] mx-auto mt-34 bg-white p-12 rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.08)]">
         <h3 className="text-[28px] font-bold text-[#18191f] mb-3">
           Start your Interior Design Journey

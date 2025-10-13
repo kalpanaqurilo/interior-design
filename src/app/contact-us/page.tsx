@@ -129,6 +129,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ContactForm from "@/component/ContactForm";
 
+
 const ContactUs = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -166,9 +167,11 @@ const ContactUs = () => {
           {/* LEFT SIDE */}
           <div className="flex flex-col justify-center gap-12">
             <div>
+              
               <h2 className="font-[Playfair Display] font-bold text-black text-[40px]  mb-6">
                 DISCOVER US
               </h2>
+           
               <p className="font-[Urbanist] text-[#18191f] text-[20px] leading-8 mb-8">
                 Interior design is here to help you.
                 <br />
@@ -179,9 +182,11 @@ const ContactUs = () => {
 
             <div className="flex flex-col gap-8">
               <div>
+                
                 <h3 className="font-[Urbanist] font-bold text-[#18191f] text-[20px] mb-3">VISIT US</h3>
                 <div className="flex items-start gap-3">
                   <span className="text-[#996830] text-xl">📍</span>
+                  
                   <p className="text-[18px] text-[#18191f] font-[Urbanist] leading-7">
                     Office no. G-02, Qunlo Solutions Pvt Ltd.
                     <br />
@@ -191,6 +196,7 @@ const ContactUs = () => {
               </div>
 
               <div>
+               
                 <h3 className="font-bold text-[#18191f] text-[20px] mb-3 ">EMAIL US</h3>
                 <div className="flex items-center gap-3">
                   <span className="text-[#996830] text-xl">✉️</span>
@@ -269,6 +275,17 @@ const ContactUs = () => {
       {/* SECTION 2: FORM */}
 
 
+
+      {/* <section className="max-w-[1000px] mx-auto mt-34 bg-white p-12 rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.08)]">
+        <h3 className="text-[28px] font-bold text-[#18191f] mb-3">
+          Start your Interior Design Journey
+        </h3>
+        <p className="text-[16px] text-[#5a5a5a] mb-8 leading-7">
+          We’d love to hear about your vision, whether it’s a cozy home upgrade,
+          a luxury villa, or a commercial space transformation. <br />
+          Share a few details about your project, and our expert design{" "}
+          <strong>team will connect with you for a free consultation within 24 hours.</strong>
+        </p>
       {/* <section className="max-w-[1000px] mx-auto mt-34 bg-white p-12 rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.08)]">
         <h3 className="text-[28px] font-bold text-[#18191f] mb-3">
           Start your Interior Design Journey
@@ -297,7 +314,38 @@ const ContactUs = () => {
                   required
                 />
               </div>
+        <form onSubmit={handleSubmit}>
+          {step === 1 && (
+            <div className="grid grid-cols-2 gap-6 animate-fadeIn">
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter your full name"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
 
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Contact No. *
+                </label>
+                <input
+                  type="text"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  placeholder="Enter your contact number"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
               <div>
                 <label className="block mb-2 text-[#18191f] font-medium">
                   Contact No. *
@@ -342,6 +390,20 @@ const ContactUs = () => {
                   required
                 />
               </div>
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  placeholder="Enter project address"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
 
               <div>
                 <label className="block mb-2 text-[#18191f] font-medium">
@@ -360,7 +422,43 @@ const ContactUs = () => {
                   <option>Renovation</option>
                 </select>
               </div>
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Project Type
+                </label>
+                <select
+                  name="projectType"
+                  value={formData.projectType}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 text-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                >
+                  <option value="">Select project type</option>
+                  <option>Residential</option>
+                  <option>Commercial</option>
+                  <option>Renovation</option>
+                </select>
+              </div>
 
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Property Type
+                </label>
+                <select
+                  name="propertyType"
+                  value={formData.propertyType}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 text-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                >
+                  <option value="">Select property type</option>
+                  <option>Apartment</option>
+                  <option>Villa</option>
+                  <option>Office</option>
+                </select>
+              </div>
+            </div>
+          )}
               <div>
                 <label className="block mb-2 text-[#18191f] font-medium">
                   Property Type
@@ -412,7 +510,35 @@ const ContactUs = () => {
                   required
                 />
               </div>
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  No. of Rooms
+                </label>
+                <input
+                  type="text"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  placeholder="eg. 4 badroom 3 bathroom "
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
 
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Budget Range
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder=""
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
               <div>
                 <label className="block mb-2 text-[#18191f] font-medium">
                   Budget Range
@@ -442,7 +568,37 @@ const ContactUs = () => {
                   required
                 />
               </div>
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Timeline to start
+                </label>
+                <input
+                  type="text"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  placeholder="Enter project address"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
 
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your design needs..."
+                  rows={4}
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+            </div>
+          )}
               <div>
                 <label className="block mb-2 text-[#18191f] font-medium">
                   Message
@@ -487,14 +643,43 @@ const ContactUs = () => {
               </button>
             )}
           </div>
+          <div className="flex justify-between mt-8">
+            {step === 2 && (
+              <button
+                type="button"
+                onClick={prevStep}
+                className="text-[#996830] px-6 py-3 rounded-lg border border-[#996830] hover:bg-[#fff7ef] transition"
+              >
+                ← Back
+              </button>
+            )}
+            {step === 1 ? (
+              <button
+                type="button"
+                onClick={nextStep}
+                className="bg-[#996830] text-white px-8 py-3 rounded-lg hover:bg-[#b07b45] transition ml-auto"
+              >
+                Next →
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="bg-[#996830] text-white px-8 py-3 rounded-lg hover:bg-[#b07b45] transition ml-auto"
+              >
+                Submit
+              </button>
+            )}
+          </div>
 
           <p className="text-center text-sm text-gray-500 mt-6">Step {step} of 2</p>
         </form>
       </section> */}
+         
       <ContactForm />
 
       {/* SECTION 3: GOOGLE MAP */}
       <section className="max-w-full mx-auto  mt-24">
+      
 
         <div className="w-full h-[500px]  overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)]">
           <iframe
@@ -507,6 +692,8 @@ const ContactUs = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
+   
+        
       </section>
 
 

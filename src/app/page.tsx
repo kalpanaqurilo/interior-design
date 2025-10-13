@@ -9,38 +9,35 @@ import Image from "next/image";
 import StatsBanner from "@/component/Stats";
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
-<<<<<<< HEAD
-import RecentProjects from "@/component/RecentProject";
-=======
-import RecentProjects from "@/component/RecentProjects";
 import LatestProject from "@/component/LatestProject";
->>>>>>> 9c33023 (some changes)
+import FeatureProjects from "@/component/FeatureProjects";
 
 
 
-const projectImages1 = [
-  { src: "/image-6.svg", alt: "Image", className: "w-[226px] h-[302px]" },
-  { src: "/image-15.svg", alt: "Image", className: "w-[334px] h-[301px]" },
-  { src: "/image-16.svg", alt: "Image", className: "w-[191px] h-80" },
-  { src: "/image-17.svg", alt: "Image", className: "w-[368px] h-[322px]" },
-];
 
-const projectImages2 = [
-  { src: "/image-18.svg", alt: "Image", className: "w-[226px] h-[302px]" },
-  { src: "/image-19.svg", alt: "Image", className: "w-[334px] h-[301px]" },
-  { src: "/image-20.svg", alt: "Image", className: "w-[191px] h-80" },
-  { src: "/image-13.svg", alt: "Image", className: "w-[368px] h-[322px]" },
-];
+// const projectImages1 = [
+//   { src: "/image-6.svg", alt: "Image", className: "w-[226px] h-[302px]" },
+//   { src: "/image-15.svg", alt: "Image", className: "w-[334px] h-[301px]" },
+//   { src: "/image-16.svg", alt: "Image", className: "w-[191px] h-80" },
+//   { src: "/image-17.svg", alt: "Image", className: "w-[368px] h-[322px]" },
+// ];
 
-const galleryImages = [
-  { src: "/rectangle-34627377.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
-  { src: "/rectangle-34627380.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
-  { src: "/rectangle-34627382.svg", alt: "Rectangle", className: "col-span-1 row-span-1" },
-  { src: "/rectangle-34627378.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
-  { src: "/rectangle-34627383.svg", alt: "Rectangle", className: "col-span-1 row-span-1" },
-  { src: "/rectangle-34627381.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
-  { src: "/rectangle-34627379.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
-];
+// const projectImages2 = [
+//   { src: "/image-18.svg", alt: "Image", className: "w-[226px] h-[302px]" },
+//   { src: "/image-19.svg", alt: "Image", className: "w-[334px] h-[301px]" },
+//   { src: "/image-20.svg", alt: "Image", className: "w-[191px] h-80" },
+//   { src: "/image-13.svg", alt: "Image", className: "w-[368px] h-[322px]" },
+// ];
+
+// const galleryImages = [
+//   { src: "/rectangle-34627377.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
+//   { src: "/rectangle-34627380.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
+//   { src: "/rectangle-34627382.svg", alt: "Rectangle", className: "col-span-1 row-span-1" },
+//   { src: "/rectangle-34627378.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
+//   { src: "/rectangle-34627383.svg", alt: "Rectangle", className: "col-span-1 row-span-1" },
+//   { src: "/rectangle-34627381.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
+//   { src: "/rectangle-34627379.svg", alt: "Rectangle", className: "col-span-2 row-span-1" },
+// ];
 
 
 export default function Home() {
@@ -167,135 +164,8 @@ export default function Home() {
           </div>
         </section>
 
-
-
         {/* Recent Works section3 */}
-
-        {/* <section className="w-full py-24 bg-[#fefcf8]">
-          <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-22 px-6">
-<<<<<<< HEAD
-           
-=======
-            {/* Left Text Content *
->>>>>>> 9c33023 (some changes)
-            <div>
-              <p className="uppercase text-[#b88b4a] tracking-widest mb-4 font-semibold">
-                Recent Works
-              </p>
-              <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-[48px] font-semibold leading-snug mb-8">
-                Some of our crafts<br />made with love
-              </h2>
-
-<<<<<<< HEAD
-             
-=======
-              {/* Large Image Card *
->>>>>>> 9c33023 (some changes)
-              <div className="relative w-full h-[480px] overflow-hidden  shadow-lg group">
-                <Image
-                  src="/Images/image1.png"
-                  alt="Villa Furnishing & Interior"
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
-                />
-                <Image
-                  src="/Images/variant1.png"
-                  alt="Villa Furnishing & Interior Hover"
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover absolute top-full left-0 transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
-                />
-              </div>
-
-              <h3 className="text-[#2d2d2d] text-[22px] font-semibold mt-6">
-                Villa Furnishing & Interior
-              </h3>
-              <p className="text-[#555] text-[16px] mt-2 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla dui amet faucibus nam.
-                Erat id laoreet posuere etiam morbi.
-              </p>
-
-              <Link href="/contact-us">
-                <button className="mt-8 bg-[#9e7b47] hover:bg-[#83673b] text-white px-6 py-3 rounded-md text-sm uppercase tracking-wide transition">
-                  Contact Us ↗
-                </button>
-              </Link>
-            </div>
-
-<<<<<<< HEAD
-            
-            <div className="flex flex-col gap-10">
-             
-=======
-            {/* Right Project List *
-            <div className="flex flex-col gap-10">
-              {/* Project 1 *
->>>>>>> 9c33023 (some changes)
-              <div className="flex flex-col">
-                <div className="relative w-full h-[390px] overflow-hidden  shadow-lg group">
-                  <Image
-                    src="/Images/image2.png"
-                    alt="Luxury Hotel Renovation"
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
-                  />
-                  <Image
-                    src="/Images/variant2.png"
-                    alt="Luxury Hotel Renovation Hover"
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover absolute top-full left-0 transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
-                  />
-                </div>
-                <h3 className="text-[#2d2d2d] text-[22px] font-semibold mt-4">
-                  Luxury Hotel Renovation
-                </h3>
-                <p className="text-[#555] text-[16px] mt-2 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla dui amet faucibus nam.
-                </p>
-              </div>
-
-<<<<<<< HEAD
-              
-=======
-              {/* Project 2 *
->>>>>>> 9c33023 (some changes)
-              <div className="flex flex-col">
-                <div className="relative w-full h-[390px] overflow-hidden  shadow-lg group">
-                  <Image
-                    src="/Images/image3.png"
-                    alt="Residence Swimming Pool"
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
-                  />
-                  <Image
-                    src="/Images/variant3.png"
-                    alt="Residence Swimming Pool Hover"
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover absolute top-full left-0 transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
-                  />
-                </div>
-                <h3 className="text-[#2d2d2d] text-[22px] font-semibold mt-4">
-                  Residence Swimming Pool
-                </h3>
-                <p className="text-[#555] text-[16px] mt-2 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla dui amet faucibus nam.
-                </p>
-              </div>
-            </div>
-          </div>
-<<<<<<< HEAD
-        </section>
-        {/* <RecentProjects /> */}
-=======
-        </section> */}
-        <RecentProjects />
-
->>>>>>> 9c33023 (some changes)
+        <FeatureProjects/>
 
         {/* section4 */}
 
@@ -377,7 +247,7 @@ export default function Home() {
 
         {/* Our Latest Project section 6 */}
 
-        <LatestProject/>
+        <LatestProject />
 
         {/* section 7 */}
 
