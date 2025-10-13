@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
                     
                        <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
                         <li> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute ir</li>
-                        <li> reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonfficia </li>.
+                        <li> reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonfficia </li>
                         <li>deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet consectetur adipisicing eonsequatur quam deleniti quibusdam </li>
                         <li>necessitatibus possimus expedita praesentium. Quo accusantium minima quaerat iusto vel, conseqin reprehenderit in voluptate </li>
                         <li>velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat no deserunt mollit anim id est laborum.</li>

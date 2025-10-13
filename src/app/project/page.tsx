@@ -15,14 +15,17 @@ const cards = [
   {
     img: "/Images/slider2.png"
   },
-  { img: "/Images/slider3.png"
-
-   },
-
-  { img: "/Images/slider4.png" 
+  {
+    img: "/Images/slider3.png"
 
   },
-  { img: "/Images/slider3.png" 
+
+  {
+    img: "/Images/slider4.png"
+
+  },
+  {
+    img: "/Images/slider3.png"
 
   },
 
@@ -310,48 +313,46 @@ const Project = () => {
 card crousle */}
 
       <section className="w-full py-20 overflow-hidden bg-[#fffefa]">
-  <div className="relative">
-    <div className="flex gap-6 animate-scroll px-6">
-      {/* First Set */}
-      <div className="flex gap-6 min-w-max">
-        {[1, 2, 3, 4, 5].map((num) => (
-          <div
-            key={num}
-            className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
-          >
-            <Image
-              src={`/Images/slider${num}.png`}
-              alt={`Interior ${num}`}
-              height={300}
-              width={400}
-              className="w-full h-full object-cover"
-            />
+        <div className="relative">
+          <div className="flex gap-6 animate-scroll px-6">
+            {/* First Set */}
+            <div className="flex gap-6 min-w-max">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <div
+                  key={num} 
+                  className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
+                >
+                  <Image
+                    src={`/Images/slider${num}.png`}
+                    alt={`Interior ${num}`}
+                    height={300}
+                    width={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Duplicate Set (for seamless looping) */}
+            <div className="flex gap-6 min-w-max" aria-hidden="true">
+              {[6, 7, 1, 2, 3].map((num) => (
+                <div
+                  key={`dup-${num}`}
+                  className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
+                >
+                  <Image
+                    src={`/Images/slider${num}.png`}
+                    alt={`Interior ${num}`}
+                    height={300}
+                    width={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
-
-      {/* Duplicate Set (for seamless looping) */}
-      <div className="flex gap-6 min-w-max" aria-hidden="true">
-        {[6, 7, 1, 2, 3].map((num) => (
-          <div
-            key={`dup-${num}`}
-            className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
-          >
-            <Image
-              src={`/Images/slider${num}.png`}
-              alt={`Interior ${num}`}
-              height={300}
-              width={400}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-
+        </div>
+      </section>
     </div>
   );
 };

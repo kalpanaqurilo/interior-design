@@ -127,6 +127,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import ContactForm from "@/component/ContactForm";
 
 const ContactUs = () => {
   const [step, setStep] = useState(1);
@@ -165,10 +166,10 @@ const ContactUs = () => {
           {/* LEFT SIDE */}
           <div className="flex flex-col justify-center gap-12">
             <div>
-              <h2 className="[font-family:'Lato',Helvetica] font-bold text-black text-[50px] leading-[66px] mb-6">
+              <h2 className="font-[Playfair Display] font-bold text-black text-[40px]  mb-6">
                 DISCOVER US
               </h2>
-              <p className="[font-family:'Lato',Helvetica] text-[#18191f] text-[20px] leading-8 mb-8">
+              <p className="font-[Urbanist] text-[#18191f] text-[20px] leading-8 mb-8">
                 Interior design is here to help you.
                 <br />
                 Our experts are available to answer any <br />
@@ -178,10 +179,10 @@ const ContactUs = () => {
 
             <div className="flex flex-col gap-8">
               <div>
-                <h3 className="font-bold text-[#18191f] text-[20px] mb-3">VISIT US</h3>
+                <h3 className="font-[Urbanist] font-bold text-[#18191f] text-[20px] mb-3">VISIT US</h3>
                 <div className="flex items-start gap-3">
                   <span className="text-[#996830] text-xl">📍</span>
-                  <p className="text-[18px] text-[#18191f] leading-7">
+                  <p className="text-[18px] text-[#18191f] font-[Urbanist] leading-7">
                     Office no. G-02, Qunlo Solutions Pvt Ltd.
                     <br />
                     Building 1, Ground Floor, Nawada
@@ -190,7 +191,7 @@ const ContactUs = () => {
               </div>
 
               <div>
-                <h3 className="font-bold text-[#18191f] text-[20px] mb-3">EMAIL US</h3>
+                <h3 className="font-bold text-[#18191f] text-[20px] mb-3 ">EMAIL US</h3>
                 <div className="flex items-center gap-3">
                   <span className="text-[#996830] text-xl">✉️</span>
                   <p className="text-[18px] text-[#18191f] leading-7">
@@ -266,247 +267,247 @@ const ContactUs = () => {
       </section>
 
       {/* SECTION 2: FORM */}
-      
 
-      <section className="max-w-[1000px] mx-auto mt-34 bg-white p-12 rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.08)]">
-  <h3 className="text-[28px] font-bold text-[#18191f] mb-3">
-    Start your Interior Design Journey
-  </h3>
-  <p className="text-[16px] text-[#5a5a5a] mb-8 leading-7">
-    We’d love to hear about your vision, whether it’s a cozy home upgrade,
-    a luxury villa, or a commercial space transformation. <br />
-    Share a few details about your project, and our expert design{" "}
-    <strong>team will connect with you for a free consultation within 24 hours.</strong>
-  </p>
 
-  <form onSubmit={handleSubmit}>
-    {step === 1 && (
-      <div className="grid grid-cols-2 gap-6 animate-fadeIn">
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Name *
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Enter your full name"
-            className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          />
+      {/* <section className="max-w-[1000px] mx-auto mt-34 bg-white p-12 rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.08)]">
+        <h3 className="text-[28px] font-bold text-[#18191f] mb-3">
+          Start your Interior Design Journey
+        </h3>
+        <p className="text-[16px] text-[#5a5a5a] mb-8 leading-7">
+          We’d love to hear about your vision, whether it’s a cozy home upgrade,
+          a luxury villa, or a commercial space transformation. <br />
+          Share a few details about your project, and our expert design{" "}
+          <strong>team will connect with you for a free consultation within 24 hours.</strong>
+        </p>
+
+        <form onSubmit={handleSubmit}>
+          {step === 1 && (
+            <div className="grid grid-cols-2 gap-6 animate-fadeIn">
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter your full name"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Contact No. *
+                </label>
+                <input
+                  type="text"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  placeholder="Enter your contact number"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Email Id *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter your email"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  placeholder="Enter project address"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Project Type
+                </label>
+                <select
+                  name="projectType"
+                  value={formData.projectType}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 text-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                >
+                  <option value="">Select project type</option>
+                  <option>Residential</option>
+                  <option>Commercial</option>
+                  <option>Renovation</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Property Type
+                </label>
+                <select
+                  name="propertyType"
+                  value={formData.propertyType}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 text-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                >
+                  <option value="">Select property type</option>
+                  <option>Apartment</option>
+                  <option>Villa</option>
+                  <option>Office</option>
+                </select>
+              </div>
+            </div>
+          )}
+
+          {step === 2 && (
+            <div className="grid grid-cols-2 gap-6 animate-fadeIn">
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Total Area (sq ft)
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="e.g 000 sq ft"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  No. of Rooms
+                </label>
+                <input
+                  type="text"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  placeholder="eg. 4 badroom 3 bathroom "
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Budget Range
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder=""
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Timeline to start
+                </label>
+                <input
+                  type="text"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  placeholder="Enter project address"
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-[#18191f] font-medium">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your design needs..."
+                  rows={4}
+                  className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
+                  required
+                />
+              </div>
+            </div>
+          )}
+
+          <div className="flex justify-between mt-8">
+            {step === 2 && (
+              <button
+                type="button"
+                onClick={prevStep}
+                className="text-[#996830] px-6 py-3 rounded-lg border border-[#996830] hover:bg-[#fff7ef] transition"
+              >
+                ← Back
+              </button>
+            )}
+            {step === 1 ? (
+              <button
+                type="button"
+                onClick={nextStep}
+                className="bg-[#996830] text-white px-8 py-3 rounded-lg hover:bg-[#b07b45] transition ml-auto"
+              >
+                Next →
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="bg-[#996830] text-white px-8 py-3 rounded-lg hover:bg-[#b07b45] transition ml-auto"
+              >
+                Submit
+              </button>
+            )}
+          </div>
+
+          <p className="text-center text-sm text-gray-500 mt-6">Step {step} of 2</p>
+        </form>
+      </section> */}
+      <ContactForm />
+
+      {/* SECTION 3: GOOGLE MAP */}
+      <section className="max-w-full mx-auto  mt-24">
+
+        <div className="w-full h-[500px]  overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.717824051368!2d-73.87199628459362!3d40.71353797933083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25eb3d3f8473b%3A0x4f7f07b704a8df7b!2sForest%20Hills%2C%20Queens%2C%20NY!5e0!3m2!1sen!2sus!4v1696361591234!5m2!1sen!2sus"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Contact No. *
-          </label>
-          <input
-            type="text"
-            name="contact"
-            value={formData.contact}
-            onChange={handleChange}
-            placeholder="Enter your contact number"
-            className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Email Id *
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Address *
-          </label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            placeholder="Enter project address"
-            className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Project Type *
-          </label>
-          <select
-            name="projectType"
-            value={formData.projectType}
-            onChange={handleChange}
-            className="w-full border border-gray-300 text-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          >
-            <option value="">Select project type</option>
-            <option>Residential</option>
-            <option>Commercial</option>
-            <option>Renovation</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Property Type *
-          </label>
-          <select
-            name="propertyType"
-            value={formData.propertyType}
-            onChange={handleChange}
-            className="w-full border border-gray-300 text-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          >
-            <option value="">Select property type</option>
-            <option>Apartment</option>
-            <option>Villa</option>
-            <option>Office</option>
-          </select>
-        </div>
-      </div>
-    )}
-
-    {step === 2 && (
-      <div className="grid grid-cols-2 gap-6 animate-fadeIn">
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Total Area (sq ft)*
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="e.g 000 sq ft"
-            className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            No. of Rooms *
-          </label>
-          <input
-            type="text"
-            name="contact"
-            value={formData.contact}
-            onChange={handleChange}
-            placeholder="eg. 4 badroom 3 bathroom "
-            className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Budget Range*
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder=""
-            className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Timeline to start *
-          </label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            placeholder="Enter project address"
-            className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-2 text-[#18191f] font-medium">
-            Message *
-          </label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Tell us about your design needs..."
-            rows={4}
-            className="w-full border border-gray-300 text-black placeholder-black rounded-lg px-4 py-3 focus:outline-none focus:border-[#996830]"
-            required
-          />
-        </div>
-      </div>
-    )}
-
-    <div className="flex justify-between mt-8">
-      {step === 2 && (
-        <button
-          type="button"
-          onClick={prevStep}
-          className="text-[#996830] px-6 py-3 rounded-lg border border-[#996830] hover:bg-[#fff7ef] transition"
-        >
-          ← Back
-        </button>
-      )}
-      {step === 1 ? (
-        <button
-          type="button"
-          onClick={nextStep}
-          className="bg-[#996830] text-white px-8 py-3 rounded-lg hover:bg-[#b07b45] transition ml-auto"
-        >
-          Next →
-        </button>
-      ) : (
-        <button
-          type="submit"
-          className="bg-[#996830] text-white px-8 py-3 rounded-lg hover:bg-[#b07b45] transition ml-auto"
-        >
-          Submit
-        </button>
-      )}
-    </div>
-
-    <p className="text-center text-sm text-gray-500 mt-6">Step {step} of 2</p>
-  </form>
-</section>
-
-{/* SECTION 3: GOOGLE MAP */}
-<section className="max-w-full mx-auto  mt-24">
-  
-
-  <div className="w-full h-[500px]  overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)]">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.717824051368!2d-73.87199628459362!3d40.71353797933083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25eb3d3f8473b%3A0x4f7f07b704a8df7b!2sForest%20Hills%2C%20Queens%2C%20NY!5e0!3m2!1sen!2sus!4v1696361591234!5m2!1sen!2sus"
-      width="100%"
-      height="100%"
-      style={{ border: 0 }}
-      allowFullScreen={true}
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    ></iframe>
-  </div>
-</section>
+      </section>
 
 
 
