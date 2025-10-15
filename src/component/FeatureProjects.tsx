@@ -397,6 +397,191 @@
 
 // export default FeatureProjects;
 
+// 'use client';
+// import { useState, useEffect } from 'react';
+// import Image from "next/image";
+// import Link from "next/link";
+
+// interface Project {
+//   slug: string;
+//   title: string;
+//   description: string;
+//   propertyType: string;
+//   area: string;
+//   layout: string;
+//   location: string;
+//   designHighlights: string[];
+//   beforeImageUrl: string[];
+//   afterImageUrl: string[];
+//   imageUrl: string[];
+// }
+
+// interface ApiResponse {
+//   status: boolean;
+//   message: string;
+//   data: {
+//     items: Project[];
+//   };
+// }
+
+// // ✅ Helper function to safely get first valid image
+// const getFirstImage = (arr?: string[]): string | null => {
+//   if (!arr || arr.length === 0) return null;
+//   const first = arr[0]?.trim();
+//   if (!first || first === "null" || first === "undefined") return null;
+//   return first;
+// };
+
+// const FeatureProjects = () => {
+//   const [projects, setProjects] = useState<Project[]>([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     const fetchProjects = async () => {
+//       try {
+//         setLoading(true);
+//         const response = await fetch(
+//           'https://d2j83cbk-4000.inc1.devtunnels.ms/api/home/feature-projects?limit=6'
+//         );
+        
+//         if (!response.ok) {
+//           throw new Error('Failed to fetch projects');
+//         }
+
+//         const data: ApiResponse = await response.json();
+        
+//         if (data.status && data.data && data.data.items) {
+//           setProjects(data.data.items.slice(0, 3)); // Take only first 3
+//         }
+//       } catch (err) {
+//         console.error('Error fetching projects:', err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchProjects();
+//   }, []);
+
+//   if (loading) {
+//     return (
+//       <section className="w-full py-24 bg-[#fefcf8]">
+//         <div className="max-w-[1300px] mx-auto px-6 text-center">
+//           <p className="text-gray-600">Loading projects...</p>
+//         </div>
+//       </section>
+//     );
+//   }
+
+//   if (projects.length === 0) {
+//     return (
+//       <section className="w-full py-24 bg-[#fefcf8]">
+//         <div className="max-w-[1300px] mx-auto px-6 text-center">
+//           <p className="text-gray-600">No projects available</p>
+//         </div>
+//       </section>
+//     );
+//   }
+
+//   // ✅ Featured project
+//   const featuredProject = projects[0];
+//   const sideProjects = projects.slice(1, 3);
+
+//   return (
+//     <section className="w-full py-24 bg-[#fefcf8]">
+//       <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-22 px-6">
+
+//         {/* Left - Featured Project */}
+//         <div>
+//           <p className="uppercase text-[#b88b4a] tracking-widest mb-4 font-semibold">
+//             Feature Projects
+//           </p>
+//           <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-[48px] font-semibold leading-snug mb-8">
+//             Some of our crafts<br />made with love
+//           </h2>
+
+//           <Link href={`/all-project/${featuredProject.slug}`}>
+//             <div className="relative w-full h-[480px] overflow-hidden shadow-lg group cursor-pointer">
+//               {/* Before Image */}
+//               <Image
+//                 src={getFirstImage(featuredProject.beforeImageUrl) || '/Images/image1.png'}
+//                 alt={featuredProject.title}
+//                 width={600}
+//                 height={480}
+//                 className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
+//               />
+//               {/* After Image */}
+//               <Image
+//                 src={
+//                   getFirstImage(featuredProject.afterImageUrl) ||
+//                   getFirstImage(featuredProject.beforeImageUrl) ||
+//                   '/Images/image1.png'
+//                 }
+//                 alt={`${featuredProject.title} - After`}
+//                 width={600}
+//                 height={480}
+//                 className="w-full h-full object-cover absolute top-full left-0 transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
+//               />
+//             </div>
+//           </Link>
+
+//           <h3 className="text-[#2d2d2d] text-[22px] font-semibold mt-6">
+//             {featuredProject.title}
+//           </h3>
+//           <p className="text-[#555] text-[16px] mt-2 leading-relaxed line-clamp-3">
+//             {featuredProject.description}
+//           </p>
+
+//           <Link href="/contact-us">
+//             <button className="mt-8 bg-[#9e7b47] hover:bg-[#83673b] text-white px-6 py-3 rounded-md text-sm uppercase tracking-wide transition">
+//               Contact Us ↗
+//             </button>
+//           </Link>
+//         </div>
+
+//         {/* Right - Two Projects */}
+//         <div className="flex flex-col gap-10">
+//           {sideProjects.map((project) => (
+//             <div key={project.slug} className="flex flex-col">
+//               <Link href={`/all-project/${project.slug}`}>
+//                 <div className="relative w-full h-[390px] overflow-hidden shadow-lg group cursor-pointer">
+//                   <Image
+//                     src={getFirstImage(project.beforeImageUrl) || '/Images/image1.png'}
+//                     alt={project.title}
+//                     width={600}
+//                     height={390}
+//                     className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
+//                   />
+//                   <Image
+//                     src={
+//                       getFirstImage(project.afterImageUrl) ||
+//                       getFirstImage(project.beforeImageUrl) ||
+//                       '/Images/image1.png'
+//                     }
+//                     alt={`${project.title} - After`}
+//                     width={600}
+//                     height={390}
+//                     className="w-full h-full object-cover absolute top-full left-0 transition-transform duration-700 ease-in-out group-hover:-translate-y-full"
+//                   />
+//                 </div>
+//               </Link>
+
+//               <h3 className="text-[#2d2d2d] text-[22px] font-semibold mt-4">
+//                 {project.title}
+//               </h3>
+//               <p className="text-[#555] text-[16px] mt-2 leading-relaxed line-clamp-2">
+//                 {project.description}
+//               </p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default FeatureProjects;
+
 'use client';
 import { useState, useEffect } from 'react';
 import Image from "next/image";
@@ -424,7 +609,7 @@ interface ApiResponse {
   };
 }
 
-// ✅ Helper function to safely get first valid image
+// ✅ Helper function
 const getFirstImage = (arr?: string[]): string | null => {
   if (!arr || arr.length === 0) return null;
   const first = arr[0]?.trim();
@@ -443,15 +628,12 @@ const FeatureProjects = () => {
         const response = await fetch(
           'https://d2j83cbk-4000.inc1.devtunnels.ms/api/home/feature-projects?limit=6'
         );
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch projects');
-        }
+
+        if (!response.ok) throw new Error('Failed to fetch projects');
 
         const data: ApiResponse = await response.json();
-        
-        if (data.status && data.data && data.data.items) {
-          setProjects(data.data.items.slice(0, 3)); // Take only first 3
+        if (data.status && data.data?.items) {
+          setProjects(data.data.items.slice(0, 3));
         }
       } catch (err) {
         console.error('Error fetching projects:', err);
@@ -465,43 +647,38 @@ const FeatureProjects = () => {
 
   if (loading) {
     return (
-      <section className="w-full py-24 bg-[#fefcf8]">
-        <div className="max-w-[1300px] mx-auto px-6 text-center">
-          <p className="text-gray-600">Loading projects...</p>
-        </div>
+      <section className="w-full py-20 bg-[#fffefa]">
+        <div className="text-center text-gray-600 text-lg">Loading projects...</div>
       </section>
     );
   }
 
   if (projects.length === 0) {
     return (
-      <section className="w-full py-24 bg-[#fefcf8]">
-        <div className="max-w-[1300px] mx-auto px-6 text-center">
-          <p className="text-gray-600">No projects available</p>
-        </div>
+      <section className="w-full py-20 bg-[#fffefa]">
+        <div className="text-center text-gray-600 text-lg">No projects available</div>
       </section>
     );
   }
 
-  // ✅ Featured project
   const featuredProject = projects[0];
   const sideProjects = projects.slice(1, 3);
 
   return (
-    <section className="w-full py-24 bg-[#fefcf8]">
-      <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-22 px-6">
+    <section className="w-full bg-[#fffefa] py-16 sm:py-20 md:py-24">
+      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 lg:gap-24">
 
-        {/* Left - Featured Project */}
-        <div>
-          <p className="uppercase text-[#b88b4a] tracking-widest mb-4 font-semibold">
+        {/* LEFT — Featured Project */}
+        <div className="flex flex-col">
+          <p className="uppercase text-[#b88b4a] tracking-wider mb-3 text-sm sm:text-base font-semibold">
             Feature Projects
           </p>
-          <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-[48px] font-semibold leading-snug mb-8">
-            Some of our crafts<br />made with love
+          <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl font-semibold leading-snug mb-8">
+            Some of our crafts<br className="hidden sm:block" /> made with love
           </h2>
 
           <Link href={`/all-project/${featuredProject.slug}`}>
-            <div className="relative w-full h-[480px] overflow-hidden shadow-lg group cursor-pointer">
+            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[480px] overflow-hidden shadow-md sm:shadow-lg group cursor-pointer rounded-xl">
               {/* Before Image */}
               <Image
                 src={getFirstImage(featuredProject.beforeImageUrl) || '/Images/image1.png'}
@@ -525,26 +702,26 @@ const FeatureProjects = () => {
             </div>
           </Link>
 
-          <h3 className="text-[#2d2d2d] text-[22px] font-semibold mt-6">
+          <h3 className="text-[#2d2d2d] text-lg sm:text-xl md:text-2xl font-semibold mt-5">
             {featuredProject.title}
           </h3>
-          <p className="text-[#555] text-[16px] mt-2 leading-relaxed line-clamp-3">
+          <p className="text-[#555] text-sm sm:text-base mt-2 leading-relaxed line-clamp-3">
             {featuredProject.description}
           </p>
 
           <Link href="/contact-us">
-            <button className="mt-8 bg-[#9e7b47] hover:bg-[#83673b] text-white px-6 py-3 rounded-md text-sm uppercase tracking-wide transition">
+            <button className="mt-6 bg-[#9e7b47] hover:bg-[#83673b] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-md text-sm sm:text-base uppercase tracking-wide transition">
               Contact Us ↗
             </button>
           </Link>
         </div>
 
-        {/* Right - Two Projects */}
+        {/* RIGHT — Side Projects */}
         <div className="flex flex-col gap-10">
           {sideProjects.map((project) => (
             <div key={project.slug} className="flex flex-col">
               <Link href={`/all-project/${project.slug}`}>
-                <div className="relative w-full h-[390px] overflow-hidden shadow-lg group cursor-pointer">
+                <div className="relative w-full h-[250px] sm:h-[320px] md:h-[390px] overflow-hidden shadow-md group cursor-pointer rounded-xl">
                   <Image
                     src={getFirstImage(project.beforeImageUrl) || '/Images/image1.png'}
                     alt={project.title}
@@ -566,10 +743,10 @@ const FeatureProjects = () => {
                 </div>
               </Link>
 
-              <h3 className="text-[#2d2d2d] text-[22px] font-semibold mt-4">
+              <h3 className="text-[#2d2d2d] text-lg sm:text-xl md:text-2xl font-semibold mt-4">
                 {project.title}
               </h3>
-              <p className="text-[#555] text-[16px] mt-2 leading-relaxed line-clamp-2">
+              <p className="text-[#555] text-sm sm:text-base mt-2 leading-relaxed line-clamp-2">
                 {project.description}
               </p>
             </div>

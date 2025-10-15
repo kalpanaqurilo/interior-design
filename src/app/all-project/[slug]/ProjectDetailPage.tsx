@@ -20,7 +20,6 @@ interface Project {
 
 export default function ProjectDetailPage({ slug }: { slug: string }) {
   const router = useRouter();
-
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);

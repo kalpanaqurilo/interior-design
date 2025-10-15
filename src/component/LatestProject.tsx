@@ -264,11 +264,11 @@ interface ApiResponse {
   };
 }
 
-// ✅ Helper function to safely get first valid image
+// ✅ Helper function
 const getFirstImage = (arr?: string[]): string | null => {
   if (!arr || arr.length === 0) return null;
   const first = arr[0]?.trim();
-  if (!first || first === "null" || first === "undefined") return null;
+  if (!first || first === 'null' || first === 'undefined') return null;
   return first;
 };
 
@@ -276,7 +276,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   const imageSrc =
     getFirstImage(project.afterImageUrl) ||
     getFirstImage(project.beforeImageUrl) ||
-    '/Images/project1.png'; // ✅ fallback
+    '/Images/project1.png'; // fallback
 
   return (
     <Link href={`/all-project/${project.slug}`}>
@@ -286,20 +286,19 @@ const ProjectCard = ({ project }: { project: Project }) => {
           alt={project.title}
           width={400}
           height={400}
-          className="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-[240px] sm:h-[300px] md:h-[350px] object-cover transition-transform duration-500 group-hover:scale-110"
         />
 
-        {/* Floating Comment Bubble */}
+        {/* Floating Info Bubble */}
         <div
-          className="absolute top-6 left-1/2 -translate-x-1/2 mt-40 opacity-0 translate-y-2
-          group-hover:opacity-100 group-hover:translate-y-0
-          transition-all duration-300 z-10"
+          className="absolute top-6 left-1/2 -translate-x-1/2 mt-28 sm:mt-32 opacity-0 translate-y-2
+          group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-10"
         >
-          <div className="relative bg-white text-[#2d2d2d] text-sm font-medium px-4 py-3 rounded-lg shadow-lg w-64">
-            <div className="font-semibold mb-1 text-[15px]">{project.title}</div>
-            <div className="text-xs line-clamp-3">{project.description}</div>
+          <div className="relative bg-white text-[#2d2d2d] text-sm sm:text-[15px] font-medium px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow-lg w-[90%] sm:w-64">
+            <div className="font-semibold mb-1 text-[14px] sm:text-[15px]">{project.title}</div>
+            <div className="text-xs sm:text-sm line-clamp-3">{project.description}</div>
 
-            {/* Triangle Tail */}
+            {/* Tail */}
             <div
               className="absolute left-1/2 bottom-[-6px] -translate-x-1/2 w-0 h-0
               border-l-[6px] border-l-transparent
@@ -346,19 +345,24 @@ const LatestProject = () => {
     fetchProjects();
   }, []);
 
+  // ✅ Common title block
+  const TitleBlock = () => (
+    <div className="flex flex-col sm:flex-row items-center justify-center mb-10 sm:mb-12 gap-3 sm:gap-4 text-center">
+      <span className="hidden sm:block w-12 sm:w-16 h-[2px] bg-[#b88b4a]" />
+      <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-3xl sm:text-[38px] md:text-[42px] font-semibold">
+        Our Latest Projects
+      </h2>
+      <span className="hidden sm:block w-12 sm:w-16 h-[2px] bg-[#b88b4a]" />
+    </div>
+  );
+
   // ✅ Loading State
   if (loading) {
     return (
-      <section className="w-full bg-[#fffefa] py-44 px-10">
+      <section className="w-full bg-[#fffefa] py-24 px-4 sm:px-8 md:px-10">
         <div className="max-w-[1300px] mx-auto text-center">
-          <div className="flex items-center justify-center mb-12">
-            <span className="w-16 h-[2px] bg-[#b88b4a] mr-4"></span>
-            <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-[42px] font-semibold">
-              Our Latest Projects
-            </h2>
-            <span className="w-16 h-[2px] bg-[#b88b4a] ml-4"></span>
-          </div>
-          <div className="text-gray-600">Loading projects...</div>
+          <TitleBlock />
+          <p className="text-gray-600 text-sm sm:text-base">Loading projects...</p>
         </div>
       </section>
     );
@@ -367,36 +371,24 @@ const LatestProject = () => {
   // ✅ Error State
   if (error) {
     return (
-      <section className="w-full bg-[#fffefa] py-44 px-10">
+      <section className="w-full bg-[#fffefa] py-24 px-4 sm:px-8 md:px-10">
         <div className="max-w-[1300px] mx-auto text-center">
-          <div className="flex items-center justify-center mb-12">
-            <span className="w-16 h-[2px] bg-[#b88b4a] mr-4"></span>
-            <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-[42px] font-semibold">
-              Our Latest Projects
-            </h2>
-            <span className="w-16 h-[2px] bg-[#b88b4a] ml-4"></span>
-          </div>
-          <div className="text-red-600">Error: {error}</div>
+          <TitleBlock />
+          <p className="text-red-600 text-sm sm:text-base">Error: {error}</p>
         </div>
       </section>
     );
   }
 
-  // ✅ Main Render
+  // ✅ Main Section
   return (
-    <section className="w-full bg-[#fffefa] py-44 px-10">
+    <section className="w-full bg-[#fffefa] py-24 px-4 sm:px-8 md:px-10">
       <div className="max-w-[1300px] mx-auto text-center">
-        {/* Title */}
-        <div className="flex items-center justify-center mb-12">
-          <span className="w-16 h-[2px] bg-[#b88b4a] mr-4"></span>
-          <h2 className="text-[#2d2d2d] font-['Playfair_Display'] text-[42px] font-semibold">
-            Our Latest Projects
-          </h2>
-          <span className="w-16 h-[2px] bg-[#b88b4a] ml-4"></span>
-        </div>
+        {/* Section Title */}
+        <TitleBlock />
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Project Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}

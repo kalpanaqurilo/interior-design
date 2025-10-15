@@ -576,6 +576,200 @@
 //   );
 // }
 
+// "use client";
+
+// import Image from "next/image";
+// import React from "react";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import type SliderType from "react-slick";
+// import { useRef } from "react";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
+
+// interface ProjectDetailProps {
+//   project: {
+//     title: string;
+//     description: string;
+//     propertyType: string;
+//     area: string;
+//     layout: string;
+//     location: string;
+//     designHighlights: string[];
+//     imageUrl: string[]; // images for top slider
+//     beforeImageUrl: string[];
+//     afterImageUrl: string[];
+//   };
+// }
+
+
+
+// const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
+//   const sliderRef = useRef<SliderType>(null);
+
+//   const settings = {
+//     dots: false,
+//     infinite: true,
+//     speed: 500,
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     arrows: false, // custom buttons use kar rahe hain
+//     adaptiveHeight: true,
+//   };
+
+//   return (
+//     <div className="w-full mx-auto px-4 py-10 space-y-12 bg-[#fffefa]">
+
+//       {/* ================= Top Continuous Scroll Slider ================= */}
+//       <section className="w-full py-20 overflow-hidden ">
+//         <div className="relative">
+//           <div className="flex gap-6 animate-scroll px-6">
+//             {/* Original Set */}
+//             <div className="flex gap-6 min-w-max">
+//               {project.imageUrl.map((img, idx) => (
+//                 <div
+//                   key={idx}
+//                   className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
+//                 >
+//                   <Image
+//                     src={img}
+//                     alt={`Interior ${idx + 1}`}
+//                     height={300}
+//                     width={400}
+//                     className="w-full h-full object-cover"
+//                   />
+//                 </div>
+//               ))}
+//             </div>
+
+//             {/* Duplicate Set for seamless loop */}
+//             <div className="flex gap-6 min-w-max" aria-hidden="true">
+//               {project.imageUrl.map((img, idx) => (
+//                 <div
+//                   key={`dup-${idx}`}
+//                   className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
+//                 >
+//                   <Image
+//                     src={img}
+//                     alt={`Interior duplicate ${idx + 1}`}
+//                     height={300}
+//                     width={400}
+//                     className="w-full h-full object-cover"
+//                   />
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* ================= Title & Description ================= */}
+//       <div className="space-y-8 px-28 mx-auto ">
+//         {/* Title */}
+//         <h1 className="text-4xl md:text-4xl font-[Playfair ] font-bold text-gray-900">
+//           {project.title}
+//         </h1>
+
+//         {/* Description */}
+//         <p className="text-gray-700  font-[Urbanist] text-lg leading-relaxed">
+//           {project.description}
+//         </p>
+
+//         {/* Property Details - Single Column */}
+//         <div className="flex flex-col gap-3 text-gray-800 font-[Urbanist]">
+//           <div>
+//             <span className="font-semibold">Property Type:</span> {project.propertyType}
+//           </div>
+//           <div>
+//             <span className="font-semibold">Area:</span> {project.area}
+//           </div>
+//           <div>
+//             <span className="font-semibold">Layout:</span> {project.layout}
+//           </div>
+//           <div>
+//             <span className="font-semibold">Location:</span> {project.location}
+//           </div>
+//         </div>
+
+//         {/* Design Highlights with Star */}
+//         <div className="mt-6 font-[Urbanist]">
+//           <h2 className="text-[20px] font-semibold text-gray-900 mb-4 flex items-center gap-2">
+//             <span className="text-yellow-500 text-2xl">★</span> Design Highlights
+//           </h2>
+//           <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+//             {project.designHighlights.map((highlight: string, idx: number) => (
+//               <li key={idx}>{highlight}</li>
+//             ))}
+//           </ul>
+//         </div>
+//       </div>
+
+
+
+//       {/* ================= Before & After Carousel ================= */}
+//       <div className="relative space-y-6 px-10 md:px-28">
+//       <h2 className="text-3xl font-[Playfair] font-semibold text-black mb-6">
+//         Image Gallery
+//       </h2>
+
+//       <Slider ref={sliderRef} {...settings}>
+//         {project.beforeImageUrl.map((beforeImg, idx) => (
+//           <div key={idx} className="flex flex-col md:flex-row gap-6 items-center">
+//             {/* BEFORE IMAGE */}
+//             <div className="flex-1 flex flex-col items-center">
+//               <div className="text-center text-[22px] font-semibold text-gray-700 mb-2 font-[Urbanist]">Before the transformation</div>
+//               <div className="w-full h-[300px]  md:h-[400px] rounded-lg overflow-hidden shadow-md">
+//                 <Image
+//                   src={beforeImg}
+//                   alt={`Before ${idx + 1}`}
+//                   width={400}
+//                   height={400}
+//                   className="w-full h-full object-cover"
+//                 />
+//               </div>
+//             </div>
+
+//             {/* AFTER IMAGE */}
+//             {project.afterImageUrl[idx] && (
+//               <div className="flex-1 flex flex-col items-center py-6">
+//                 <div className="text-center text-[22px] font-semibold text-gray-700 mb-2 font-[Urbanist]">After the transformation</div>
+//                 <div className="w-full h-[300px]  md:h-[400px] rounded-lg overflow-hidden shadow-md">
+//                   <Image
+//                     src={project.afterImageUrl[idx]}
+//                     alt={`After ${idx + 1}`}
+//                     width={400}
+//                     height={400}
+//                     className="w-full h-full object-cover"
+//                   />
+//                 </div>
+//               </div>
+//             )}
+//           </div>
+//         ))}
+//       </Slider>
+
+//       {/* Custom Navigation Buttons */}
+//       <div className="flex justify-between absolute top-1/2 left-6 right-6 transform -translate-y-1/2 pointer-events-none">
+//         <button
+//           onClick={() => sliderRef.current?.slickPrev()}
+//           className="pointer-events-auto bg-[#996830] hover:bg-[#7d5426] text-white rounded-full p-2 shadow-md"
+//         >
+//           <ChevronLeft size={24} />
+//         </button>
+
+//         <button
+//           onClick={() => sliderRef.current?.slickNext()}
+//           className="pointer-events-auto bg-[#996830] hover:bg-[#7d5426] text-white rounded-full p-2 shadow-md"
+//         >
+//           <ChevronRight size={24} />
+//         </button>
+//       </div>
+//     </div>    </div>
+//   );
+// };
+
+// export default ProjectDetail;
+
 "use client";
 
 import Image from "next/image";
@@ -602,8 +796,6 @@ interface ProjectDetailProps {
   };
 }
 
-
-
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
   const sliderRef = useRef<SliderType>(null);
 
@@ -613,47 +805,47 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false, // custom buttons use kar rahe hain
+    arrows: false,
     adaptiveHeight: true,
   };
 
   return (
-    <div className="w-full mx-auto px-4 py-10 space-y-12 bg-[#fffefa]">
+    <div className="w-full mx-auto px-4 sm:px-6 md:px-10 py-10 space-y-12 bg-[#fffefa]">
 
       {/* ================= Top Continuous Scroll Slider ================= */}
-      <section className="w-full py-20 overflow-hidden ">
+      <section className="w-full py-10 overflow-hidden">
         <div className="relative">
-          <div className="flex gap-6 animate-scroll px-6">
+          <div className="flex gap-4 sm:gap-6 animate-scroll px-2 sm:px-6">
             {/* Original Set */}
-            <div className="flex gap-6 min-w-max">
+            <div className="flex gap-4 sm:gap-6 min-w-max">
               {project.imageUrl.map((img, idx) => (
                 <div
                   key={idx}
-                  className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
+                  className="w-[200px] sm:w-[300px] md:w-[400px] h-[150px] sm:h-[250px] md:h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
                 >
                   <Image
                     src={img}
                     alt={`Interior ${idx + 1}`}
-                    height={300}
                     width={400}
+                    height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>
               ))}
             </div>
 
-            {/* Duplicate Set for seamless loop */}
-            <div className="flex gap-6 min-w-max" aria-hidden="true">
+            {/* Duplicate Set */}
+            <div className="flex gap-4 sm:gap-6 min-w-max" aria-hidden="true">
               {project.imageUrl.map((img, idx) => (
                 <div
                   key={`dup-${idx}`}
-                  className="w-[400px] h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
+                  className="w-[200px] sm:w-[300px] md:w-[400px] h-[150px] sm:h-[250px] md:h-[300px] overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.1)] flex-shrink-0"
                 >
                   <Image
                     src={img}
                     alt={`Interior duplicate ${idx + 1}`}
-                    height={300}
                     width={400}
+                    height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -664,19 +856,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
       </section>
 
       {/* ================= Title & Description ================= */}
-      <div className="space-y-8 px-28 mx-auto ">
-        {/* Title */}
-        <h1 className="text-4xl md:text-4xl font-[Playfair ] font-bold text-gray-900">
+      <div className="space-y-6 sm:space-y-8 px-2 sm:px-6 md:px-28 mx-auto">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-[Playfair] font-bold text-gray-900">
           {project.title}
         </h1>
 
-        {/* Description */}
-        <p className="text-gray-700  font-[Urbanist] text-lg leading-relaxed">
+        <p className="text-gray-700 font-[Urbanist] text-base sm:text-lg md:text-lg leading-relaxed">
           {project.description}
         </p>
 
-        {/* Property Details - Single Column */}
-        <div className="flex flex-col gap-3 text-gray-800 font-[Urbanist]">
+        {/* Property Details */}
+        <div className="flex flex-col gap-2 sm:gap-3 text-gray-800 font-[Urbanist]">
           <div>
             <span className="font-semibold">Property Type:</span> {project.propertyType}
           </div>
@@ -691,12 +881,12 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
           </div>
         </div>
 
-        {/* Design Highlights with Star */}
-        <div className="mt-6 font-[Urbanist]">
-          <h2 className="text-[20px] font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <span className="text-yellow-500 text-2xl">★</span> Design Highlights
+        {/* Design Highlights */}
+        <div className="mt-4 sm:mt-6 font-[Urbanist]">
+          <h2 className="text-[18px] sm:text-[20px] font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+            <span className="text-yellow-500 text-xl sm:text-2xl">★</span> Design Highlights
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+          <ul className="list-disc list-inside space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-lg">
             {project.designHighlights.map((highlight: string, idx: number) => (
               <li key={idx}>{highlight}</li>
             ))}
@@ -704,67 +894,70 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
         </div>
       </div>
 
-
-
       {/* ================= Before & After Carousel ================= */}
-      <div className="relative space-y-6 px-10 md:px-28">
-      <h2 className="text-3xl font-[Playfair] font-semibold text-black mb-6">
-        Image Gallery
-      </h2>
+      <div className="relative space-y-6 px-2 sm:px-6 md:px-28">
+        <h2 className="text-2xl sm:text-3xl md:text-3xl font-[Playfair] font-semibold text-black mb-4 sm:mb-6">
+          Image Gallery
+        </h2>
 
-      <Slider ref={sliderRef} {...settings}>
-        {project.beforeImageUrl.map((beforeImg, idx) => (
-          <div key={idx} className="flex flex-col md:flex-row gap-6 items-center">
-            {/* BEFORE IMAGE */}
-            <div className="flex-1 flex flex-col items-center">
-              <div className="text-center text-[22px] font-semibold text-gray-700 mb-2 font-[Urbanist]">Before the transformation</div>
-              <div className="w-full h-[300px]  md:h-[400px] rounded-lg overflow-hidden shadow-md">
-                <Image
-                  src={beforeImg}
-                  alt={`Before ${idx + 1}`}
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* AFTER IMAGE */}
-            {project.afterImageUrl[idx] && (
-              <div className="flex-1 flex flex-col items-center py-6">
-                <div className="text-center text-[22px] font-semibold text-gray-700 mb-2 font-[Urbanist]">After the transformation</div>
-                <div className="w-full h-[300px]  md:h-[400px] rounded-lg overflow-hidden shadow-md">
+        <Slider ref={sliderRef} {...settings}>
+          {project.beforeImageUrl.map((beforeImg, idx) => (
+            <div key={idx} className="flex flex-col md:flex-row gap-4 sm:gap-6 items-center">
+              {/* BEFORE IMAGE */}
+              <div className="flex-1 flex flex-col items-center">
+                <div className="text-center text-[18px] sm:text-[20px] font-semibold text-gray-700 mb-2 font-[Urbanist]">
+                  Before the transformation
+                </div>
+                <div className="w-full h-[180px] sm:h-[250px] md:h-[400px] rounded-lg overflow-hidden shadow-md">
                   <Image
-                    src={project.afterImageUrl[idx]}
-                    alt={`After ${idx + 1}`}
+                    src={beforeImg}
+                    alt={`Before ${idx + 1}`}
                     width={400}
                     height={400}
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
-            )}
-          </div>
-        ))}
-      </Slider>
 
-      {/* Custom Navigation Buttons */}
-      <div className="flex justify-between absolute top-1/2 left-6 right-6 transform -translate-y-1/2 pointer-events-none">
-        <button
-          onClick={() => sliderRef.current?.slickPrev()}
-          className="pointer-events-auto bg-[#996830] hover:bg-[#7d5426] text-white rounded-full p-2 shadow-md"
-        >
-          <ChevronLeft size={24} />
-        </button>
+              {/* AFTER IMAGE */}
+              {project.afterImageUrl[idx] && (
+                <div className="flex-1 flex flex-col items-center py-4 sm:py-6">
+                  <div className="text-center text-[18px] sm:text-[20px] font-semibold text-gray-700 mb-2 font-[Urbanist]">
+                    After the transformation
+                  </div>
+                  <div className="w-full h-[180px] sm:h-[250px] md:h-[400px] rounded-lg overflow-hidden shadow-md">
+                    <Image
+                      src={project.afterImageUrl[idx]}
+                      alt={`After ${idx + 1}`}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </Slider>
 
-        <button
-          onClick={() => sliderRef.current?.slickNext()}
-          className="pointer-events-auto bg-[#996830] hover:bg-[#7d5426] text-white rounded-full p-2 shadow-md"
-        >
-          <ChevronRight size={24} />
-        </button>
+        {/* Custom Navigation Buttons */}
+        <div className="flex justify-between absolute top-1/2 left-4 sm:left-6 right-4 sm:right-6 transform -translate-y-1/2 pointer-events-none">
+          <button
+            onClick={() => sliderRef.current?.slickPrev()}
+            className="pointer-events-auto bg-[#996830] hover:bg-[#7d5426] text-white rounded-full p-2 sm:p-3 shadow-md"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          <button
+            onClick={() => sliderRef.current?.slickNext()}
+            className="pointer-events-auto bg-[#996830] hover:bg-[#7d5426] text-white rounded-full p-2 sm:p-3 shadow-md"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
       </div>
-    </div>    </div>
+    </div>
   );
 };
 
