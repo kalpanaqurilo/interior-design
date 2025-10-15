@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 
 const ContactUs = () => {
     const [step, setStep] = useState(1);
@@ -82,7 +81,7 @@ const ContactUs = () => {
           Start your Interior Design Journey
         </h3>
         <p className="text-[16px] text-[#5a5a5a] mb-8 leading-7">
-          We’d love to hear about your vision, whether it’s a cozy home upgrade,
+          We had love to hear about your vision, whether it is a cozy home upgrade,
           a luxury villa, or a commercial space transformation. <br />
           Share a few details about your project, and our expert design{" "}
           <strong>team will connect with you for a free consultation within 24 hours.</strong>
@@ -287,12 +286,19 @@ const ContactUs = () => {
                 Next →
               </button>
             ) : (
+              // <button
+              //   type="submit"
+              //   className="bg-[#996830] text-white px-8 py-3 rounded-lg hover:bg-[#b07b45] transition ml-auto"
+              // >
+              //   Submit
+              // </button>
               <button
-                type="submit"
-                className="bg-[#996830] text-white px-8 py-3 rounded-lg hover:bg-[#b07b45] transition ml-auto"
-              >
-                Submit
-              </button>
+  type="submit"
+  className="bg-[#996830] text-white px-8 py-3 rounded-lg hover:bg-[#b07b45] transition ml-auto"
+  disabled={loading}
+>
+  {loading ? "Submitting..." : "Submit"}
+</button>
             )}
           </div>
 

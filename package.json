@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+     "export": "next export",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint"
@@ -22,6 +23,7 @@
     "react-router-dom": "^7.9.3",
     "react-slick": "^0.31.0",
     "slick-carousel": "^1.8.1",
+    "swiper": "^12.0.2",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-slick": "^0.23.13",
+    "@types/swiper": "^5.4.3",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "tailwindcss": "^4",
